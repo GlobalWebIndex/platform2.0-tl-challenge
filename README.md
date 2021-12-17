@@ -1,3 +1,6 @@
+# GlobalWebIndex Engineering Challenge
+
+
 ## Exercise: CatLover
 
 Create a React application with a Go backend for cat lovers. 
@@ -15,5 +18,5 @@ We give you a lot of freedom in technologies and ways of doing things. We only i
 
 > Also bear in mind that we don’t actually require you to have correct cat breed names or even have the cat photos assigned to the correct breed. 
 
-Submission
+## Submission
 Just a make a PR to the current repo! Good luck, potential colleague!
