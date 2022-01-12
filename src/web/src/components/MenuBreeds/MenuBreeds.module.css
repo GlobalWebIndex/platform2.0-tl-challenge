@@ -1,0 +1,23 @@
+.menuList {
+  list-style: none;
+}
+
+.loadMoreBreeds {
+  font-size: smaller;
+  color: darkgray;
+  text-decoration: underline;
+}
+
+.link:link,
+.link:visited,
+.link:active {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.link:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}

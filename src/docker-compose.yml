@@ -1,0 +1,73 @@
+version: "3"
+services:
+  db:
+    image: "postgres:13"
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+      timeout: 45s
+      interval: 5s
+      retries: 10
+    restart: always
+    container_name: "db"
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "password"
+      APP_DB_USER: "cats_user"
+      APP_DB_PASS: "cats_pwd"
+      APP_DB_NAME: "cats_db"
+    ports:
+      - "54320:5432"
+    volumes:
+      - pg_storage:/var/lib/postgresql/data
+      - ./backend/scripts:/docker-entrypoint-initdb.d/
+  redis:
+    image: "redis:alpine"
+    container_name: redis
+    ports:
+      - "63790:6379"
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    # profiles:
+    #   - donotstart
+    depends_on:
+      redis:
+        condition: service_started
+      db:
+        condition: service_healthy
+    container_name: api
+    environment:
+      DB_HOST: "db"
+      DB_PORT: 5432
+      DB_USERNAME: "cats_user"
+      DB_PASSWORD: "cats_pwd"
+      DB_NAME: "cats_db"
+      REDIS_HOST: "redis"
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ""
+      JWT_TOKEN_SIGN_KEY: "giannis"
+      JWT_TOKEN_LIFETIME: 20
+      DEFAULT_PAGE_SIZE: 10
+    ports:
+      - "8080:8080"
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    # profiles:
+    #   - donotstart
+    depends_on:
+      api:
+        condition: service_started
+    container_name: web
+    environment:
+      REACT_APP_BACKEND_SSL: "false"
+      REACT_APP_BACKEND_HOST: "localhost"
+      REACT_APP_BACKEND_PORT: 8080
+      REACT_APP_MAX_PAGE_SIZE: 10
+      REACT_APP_DEMO_USER_ON: "true"
+    ports:
+      - "8888:3000"
+volumes:
+  pg_storage:
