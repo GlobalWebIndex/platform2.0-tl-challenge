@@ -1,0 +1,12 @@
+.linkItem:link,
+.linkItem:visited,
+.linkItem:active {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.linkItem:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}

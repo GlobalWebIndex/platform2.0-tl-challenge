@@ -1,0 +1,6 @@
+.dockerignore
+Dockerfile
+makefile
+readme.md
+api.http
+.env
