@@ -5,13 +5,17 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"os"
+	"time"
 
 	"catlover.api/models"
 )
 
 func GetAllCats() []models.Cat {
 	var cats = OpenJsonFile()
+	rand.Seed(time.Now().UnixNano())
+	rand.Shuffle(len(cats), func(i, j int) { cats[i], cats[j] = cats[j], cats[i] })
 	return cats
 }
 
