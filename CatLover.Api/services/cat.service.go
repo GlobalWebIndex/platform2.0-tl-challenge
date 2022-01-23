@@ -9,8 +9,18 @@ import (
 	"os"
 	"time"
 
+	"github.com/gin-gonic/gin"
+
 	"catlover.api/models"
 )
+
+type CatService interface {
+	GetAllCats() []models.Cat
+	GetCatById(id string) (models.Cat, int32)
+	GetCatsByBreedId(breedId string) []models.Cat
+	GetCatFavorites() []models.Cat
+	UpdateCat(id string, c *gin.Context) (models.Cat, int32)
+}
 
 func GetAllCats() []models.Cat {
 	var cats = OpenJsonFile()
@@ -50,6 +60,34 @@ func GetCatFavorites() []models.Cat {
 		}
 	}
 	return catsFavorites
+}
+
+func UpdateCat(id string, c *gin.Context) (models.Cat, int32) {
+	catOld, count := GetCatById(id)
+	if count == 0 {
+		var cat = models.Cat{}
+		return cat, 0
+	}
+
+	var inputCat models.Cat
+	if err := c.ShouldBindJSON(&inputCat); err != nil {
+		var cat = models.Cat{}
+		return cat, 0
+	}
+
+	catOld.BreedId = inputCat.BreedId
+	catOld.PhotoUrl = inputCat.PhotoUrl
+	catOld.IsFavorite = inputCat.IsFavorite
+
+	UpdateJsonFile(id, catOld)
+
+	catUpdated, count := GetCatById(id)
+	if count == 0 {
+		var cat = models.Cat{}
+		return cat, 0
+	}
+
+	return catUpdated, 1
 }
 
 func OpenJsonFile() []models.Cat {
