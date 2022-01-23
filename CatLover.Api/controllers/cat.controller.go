@@ -53,27 +53,13 @@ func GetCatsByBreedId(c *gin.Context) {
 // PATCH /cats/id (Update one cat)
 func UpdateCat(c *gin.Context) {
 	var cat models.Cat
-	var id = c.Param("id")
-	cat, count := services.GetCatById(id)
+	var catId = c.Param("id")
+	cat, count := services.UpdateCat(catId, c)
 	if count == 0 {
-		var response = services.ReturnResponse("404 Not Found", 404, "The can with the id "+id+" was not found", nil)
+		var response = services.ReturnResponse("404 Not Found", 404, "The can with the id "+catId+" was not found", nil)
 		c.IndentedJSON(http.StatusNotFound, response)
 		return
 	}
-
-	var inputCat models.Cat
-	if err := c.ShouldBindJSON(&inputCat); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	var updatedCat models.Cat
-	updatedCat.BreedId = inputCat.BreedId
-	updatedCat.PhotoUrl = inputCat.PhotoUrl
-	updatedCat.IsFavorite = inputCat.IsFavorite
-
-	services.UpdateJsonFile(id, updatedCat)
-
-	var response = services.ReturnResponse("OK", 200, "The can with the id "+id+" was updated successfully", cat)
+	var response = services.ReturnResponse("OK", 200, "The cat with the id "+catId+" was updated successfully", cat)
 	c.IndentedJSON(http.StatusOK, response)
 }
