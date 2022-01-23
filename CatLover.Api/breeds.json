@@ -1,0 +1,67 @@
+[
+    {
+        "id": "1",
+        "name": "Turkish Van",
+        "details": "Depending on the season, the Turkish Van cat has a thick coat of usually white hair, sometimes with orange speckles. Its most characteristic quality is its two-colored eyes that are seen in most cats of the breed."
+    },
+    {
+        "id": "2",
+        "name": "Persian",
+        "details": "Flat face and long fur: These two characteristics make the Persian cat one of the most instantly recognizable cat breeds of all time. They come in almost all kinds of fur colors"
+    },
+    {
+        "id": "3",
+        "name": "Norwegian Forest",
+        "details": "With their fluffy fur and snowshoe paws, the Norwegian Forest cat is calm in demeanor and equipped to face the harsh colds of northern Europe"
+    },
+    {
+        "id": "4",
+        "name": "American shorthair",
+        "details": "The American Shorthair is a true breed of working cat. The general effect is that of a strongly built, well balanced, symmetrical cat with conformation indicating power, endurance, and agility"
+    },
+    {
+        "id": "5",
+        "name": "Abyssinian",
+        "details": "Coming from Ethiopia, which was formerly known as Abyssinia, this cat is known for its reddish coat and dog-like behavior: following you around and being quite active"
+    },
+    {
+        "id": "6",
+        "name": "Ragdoll",
+        "details": "If you wanted a Siamese but with long hair, it would be a Ragdoll. This breed was given the peculiar name because they go limb when they are lifted up. They are very sweet and docile in demeanor"
+    },
+    {
+        "id": "7",
+        "name": "Russian Blue",
+        "details": "With their shimmering dark grey, silverish fur the Russian Blue has a temperament of its own. While the coat is short it is rather thick."
+    },
+    {
+        "id": "8",
+        "name": "Maine coon",
+        "details": "Taking their name from the U.S.' Maine, this cat is the biggest breed of them all"
+    },
+    {
+        "id": "9",
+        "name": "Scottish Fold",
+        "details": "Named after their folded ears, the Scottish Fold has big round eyes and are quite rare to come by"
+    },
+    {
+        "id": "10",
+        "name": "Bengal",
+        "details": "The coat of the Bengal is usually warm-colored and speckled with roundish spots. They are quite muscular and rather athletic"
+    },
+    {
+        "id": "11",
+        "name": "Siamese",
+        "details": "This breed comes from Thailand, formerly known as Siam, and has distinct markings usually on their nose, ears, paws and tail"
+    },
+    {
+        "id": "12",
+        "name": "Sphynx",
+        "details": "The lack of fur makes the Sphynx a popular choice for those with allergies. However, due to their sensitivity to cold, this breed requires more care"
+    },
+    {
+        "id": "13",
+        "name": "Turkish Angora",
+        "details": "Sometimes only referred to as Angora or Ankara Cat, this breed has a characteristic long white coat and is said to be quite clever"
+    }
+]
