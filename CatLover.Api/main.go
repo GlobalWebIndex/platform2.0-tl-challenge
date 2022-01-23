@@ -20,8 +20,13 @@ func handleRequests() {
 	router := gin.Default()
 	router.GET("/", homePage)
 	router.GET("/cats", controllers.GetAllCats)
+	router.GET("/catsfavorites", controllers.GetAllCatsFavorites)
 	router.GET("/cats/:id", controllers.GetCatById)
+	router.GET("/catsbreed/:id", controllers.GetCatsByBreedId)
 	router.PATCH("/cats/:id", controllers.UpdateCat)
+
+	router.GET("/breeds", controllers.GetAllBreeds)
+	router.GET("/breeds/:id", controllers.GetBreedById)
 	router.NoRoute(func(c *gin.Context) {
 		c.IndentedJSON(http.StatusNotFound, services.ReturnResponse("404 Not Found", 404, "Page not found.", nil))
 	})
