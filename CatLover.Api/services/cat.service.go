@@ -49,7 +49,7 @@ func GetCatFavorites() []models.Cat {
 }
 
 func OpenJsonFile() []models.Cat {
-	jsonFile, err := os.Open("cats.json")
+	jsonFile, err := os.Open("data/cats.json")
 	if err != nil {
 		log.Fatalf("failed opening file: %s", err)
 		fmt.Println(err)
@@ -66,7 +66,7 @@ func OpenJsonFile() []models.Cat {
 }
 
 func UpdateJsonFile(id string, cat models.Cat) {
-	jsonFile, errorOpenFile := os.OpenFile("cats.json", os.O_RDWR, 0755)
+	jsonFile, errorOpenFile := os.OpenFile("data/cats.json", os.O_RDWR, 0755)
 
 	if errorOpenFile != nil {
 		log.Fatalf("failed opening file: %s", errorOpenFile)

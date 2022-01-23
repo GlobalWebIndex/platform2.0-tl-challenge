@@ -27,7 +27,7 @@ func GetOneBreed(id string) (models.Breed, int32) {
 }
 
 func OpenBreedJsonFile() []models.Breed {
-	jsonFile, err := os.Open("breeds.json")
+	jsonFile, err := os.Open("data/breeds.json")
 	if err != nil {
 		log.Fatalf("failed opening file: %s", err)
 		fmt.Println(err)
