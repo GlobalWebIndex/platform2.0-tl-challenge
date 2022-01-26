@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 
 	"catlover.api/controllers"
@@ -18,6 +19,8 @@ func homePage(c *gin.Context) {
 
 func handleRequests() {
 	router := gin.Default()
+	router.Use(cors.Default())
+
 	router.GET("/", homePage)
 
 	//Cats route
@@ -34,6 +37,7 @@ func handleRequests() {
 	router.NoRoute(func(c *gin.Context) {
 		c.IndentedJSON(http.StatusNotFound, services.ReturnResponse("404 Not Found", 404, "Page not found.", nil))
 	})
+
 	router.Run("localhost:10000")
 }
 
