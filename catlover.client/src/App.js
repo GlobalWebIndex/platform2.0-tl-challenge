@@ -1,12 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import CatsComponent from './components/cats/catsComponent'
 
 function App() {
-  return (
-    <div class="alert alert-primary" role="alert">
-      A simple primary alert—check it out!
-    </div>
-);
+  return ( <
+    CatsComponent / >
+  );
 }
 
 export default App;

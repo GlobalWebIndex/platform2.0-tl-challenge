@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import HeaderComponent from './components/header/headerComponent'
 
 ReactDOM.render(
   <React.StrictMode>
+    <HeaderComponent />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
