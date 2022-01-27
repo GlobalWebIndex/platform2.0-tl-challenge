@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import BreedComponent from "./breedComponent";
+import LoadingComponent from "../loading/loadingComponent";
+import ErrorComponent from "../error/errorComponent";
+import PageTitleComponent from "../pageTitle/pageTitleComponent";
 
 class BreedsComponent extends Component {
   constructor(props) {
@@ -7,6 +10,7 @@ class BreedsComponent extends Component {
     this.state = {
       error: null,
       isLoaded: false,
+      message: String,
       items: [],
     };
   }
@@ -18,6 +22,7 @@ class BreedsComponent extends Component {
         (result) => {
           this.setState({
             isLoaded: true,
+            message: result.message,
             items: result.data,
           });
         },
@@ -31,14 +36,23 @@ class BreedsComponent extends Component {
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, message, items } = this.state;
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return (
+        <div>
+          <ErrorComponent errorMessage={error.message} />
+        </div>
+      );
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return (
+        <div>
+          <LoadingComponent />
+        </div>
+      );
     } else {
       return (
         <div>
+          <PageTitleComponent title={message} />
           <div className="card-group m-2">
             <div className="row">
               {items.map((item) => (
