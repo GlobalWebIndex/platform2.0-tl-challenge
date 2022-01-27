@@ -35,7 +35,7 @@ class HomeComponent extends Component {
         </div>
         <div className="col">
           <div className="card">
-            <a href="/breeds" className="stretched-link"></a>
+            <a href="/favorites" className="stretched-link"></a>
             <div className="card-header">
               <h5 className="card-title">Cats Favorite List</h5>
             </div>

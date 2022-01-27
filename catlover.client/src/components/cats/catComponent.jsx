@@ -3,7 +3,6 @@ import CatModalComponent from "./catModalComponent";
 
 class CatComponent extends Component {
   state = {};
-  test = {};
 
   handleShow = () => {
     this.setState({
