@@ -6,7 +6,7 @@ class HeaderComponent extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             CatLover
           </a>
           <button
@@ -23,12 +23,12 @@ class HeaderComponent extends Component {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/cats">
                   All Cats
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/breeds">
                   Cat Breeds
                 </a>
               </li>
