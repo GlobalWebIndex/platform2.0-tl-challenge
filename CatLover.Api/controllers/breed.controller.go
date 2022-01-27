@@ -5,10 +5,16 @@ import (
 	"net/http"
 	"strconv"
 
+	"catlover.api/models"
 	"catlover.api/services"
 
 	"github.com/gin-gonic/gin"
 )
+
+type ResponseBreedById struct {
+	Breed models.Breed
+	Cats  []models.Cat
+}
 
 // GET /breeds (Get all Breeds)
 func GetAllBreeds(c *gin.Context) {
@@ -28,6 +34,12 @@ func GetBreedById(c *gin.Context) {
 		c.IndentedJSON(http.StatusNotFound, response)
 		return
 	}
-	var response = services.ReturnResponse("OK", 200, "Below you can find the breed with id: "+id, breed)
+
+	cats := services.GetCatsByBreedId(id)
+	ResponseBreedByIdobj := new(ResponseBreedById)
+	ResponseBreedByIdobj.Breed = breed
+	ResponseBreedByIdobj.Cats = cats
+
+	var response = services.ReturnResponse("OK", 200, "Below you can find the breed with id: "+id, ResponseBreedByIdobj)
 	c.IndentedJSON(http.StatusOK, response)
 }
