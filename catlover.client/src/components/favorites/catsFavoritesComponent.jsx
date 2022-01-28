@@ -52,7 +52,7 @@ class CatsFavoriteComponent extends Component {
       );
     } else {
       return (
-        <div>
+        <div className="container">
           <PageTitleComponent title={message} />
           <div className="card-group m-2">
             <div className="row">
