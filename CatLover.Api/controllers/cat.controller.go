@@ -15,7 +15,7 @@ import (
 func GetAllCats(c *gin.Context) {
 	var cats = services.GetAllCats()
 	fmt.Println("Endpoint Hit: GetAllCats")
-	var response = services.ReturnResponse("OK", 200, "Below you can find "+strconv.Itoa(len(cats))+" cats.", cats)
+	var response = services.ReturnResponse("OK", 200, "Below you can find "+strconv.Itoa(len(cats))+" cats. Click on a image to open cat details.", cats)
 	c.IndentedJSON(http.StatusOK, response)
 }
 
@@ -23,7 +23,7 @@ func GetAllCats(c *gin.Context) {
 func GetAllCatsFavorites(c *gin.Context) {
 	var catsFavorites = services.GetCatFavorites()
 	fmt.Println("Endpoint Hit: GetAllCatsBreeds")
-	var response = services.ReturnResponse("OK", 200, "Below you can find "+strconv.Itoa(len(catsFavorites))+" favorite cats.", catsFavorites)
+	var response = services.ReturnResponse("OK", 200, "Below you can find "+strconv.Itoa(len(catsFavorites))+" favorite cats. Click 'Remove' button to remove the selected cat from your favorites.", catsFavorites)
 	c.IndentedJSON(http.StatusOK, response)
 }
 

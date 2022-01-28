@@ -20,7 +20,7 @@ type ResponseBreedById struct {
 func GetAllBreeds(c *gin.Context) {
 	var breeds = services.GetAllBreeds()
 	fmt.Println("Endpoint Hit: GetAllBreeds")
-	var response = services.ReturnResponse("OK", 200, "Below you can find "+strconv.Itoa(len(breeds))+" breeds.", breeds)
+	var response = services.ReturnResponse("OK", 200, "Below you can find "+strconv.Itoa(len(breeds))+" breeds. Click on a breed to open breed details.", breeds)
 	c.IndentedJSON(http.StatusOK, response)
 }
 
