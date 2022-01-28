@@ -54,6 +54,16 @@ class CatModalComponent extends Component {
 
           <Modal.Footer>
             <Button
+              variant="primary"
+              onClick={() =>
+                this.props.onClick({
+                  msg: "Modal Closed!",
+                })
+              }
+            >
+              Save as Favorite
+            </Button>
+            <Button
               variant="secondary"
               onClick={() =>
                 this.props.onClick({
@@ -63,12 +73,12 @@ class CatModalComponent extends Component {
             >
               Close
             </Button>
-            <Button
+            {/* <Button
               variant="primary"
               onClick={() => this.props.onClick({ msg: "Modal Submitted!" })}
             >
               Submit
-            </Button>
+            </Button> */}
           </Modal.Footer>
         </Modal>
       </div>
