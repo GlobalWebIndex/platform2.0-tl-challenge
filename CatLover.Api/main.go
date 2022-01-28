@@ -1,6 +1,9 @@
 package main
 
 import (
+	// "database/sql"
+	// _ "github.com/mattn/go-sqlite3"
+
 	"fmt"
 	"net/http"
 
@@ -18,6 +21,7 @@ func homePage(c *gin.Context) {
 }
 
 func handleRequests() {
+
 	router := gin.Default()
 	router.Use(cors.Default())
 
@@ -42,5 +46,15 @@ func handleRequests() {
 }
 
 func main() {
+
+	//go-sqlite3 is not working
+	//I always get the error "cgo: C compiler "gcc" not found: exec: "gcc": executable file not found in %PATH%" when im trying to install the package go-sqlite3. "go install github.com/mattn/go-sqlite3" & "go get github.com/mattn/go-sqlite3"
+	//MiniGW & tdm64-gcc are installed. every solution i found from web, is not working.
+	// db, err := sql.Open("sqlite3", "./data/catlover.db")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// defer db.Close()
+
 	handleRequests()
 }

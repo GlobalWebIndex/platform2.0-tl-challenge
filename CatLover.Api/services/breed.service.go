@@ -1,6 +1,9 @@
 package services
 
 import (
+	// "database/sql"
+	// _ "github.com/mattn/go-sqlite3"
+
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -17,12 +20,30 @@ type BreedService interface {
 }
 
 func GetAllBreeds() []models.Breed {
-	var breeds = OpenBreedJsonFile() //Better use of SQL DB
+
+	//If SQLite was working
+	// db, err := sql.Open("sqlite3", "../data/catlover.db")
+	// breeds, err := db.Query("SELECT * FROM Breed")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// breeds.Close()
+
+	var breeds = OpenBreedJsonFile()
 	return breeds
 }
 
 func GetOneBreed(id string) (models.Breed, int32) {
-	var breeds = OpenBreedJsonFile() //Better use of SQL DB
+
+	//If SQLite was working
+	// db, err := sql.Open("sqlite3", "../data/catlover.db")
+	// breeds, err := db.Query("SELECT * FROM Breed WHERE Id = " + id)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// breeds.Close()
+
+	var breeds = OpenBreedJsonFile()
 	for index := range breeds {
 		if breeds[index].Id == id {
 			return breeds[index], 1

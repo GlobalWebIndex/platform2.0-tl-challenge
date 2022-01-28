@@ -1,6 +1,9 @@
 package services
 
 import (
+	// "database/sql"
+	// _ "github.com/mattn/go-sqlite3"
+
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -23,6 +26,15 @@ type CatService interface {
 }
 
 func GetAllCats() []models.Cat {
+
+	//If SQLite was working
+	// db, err := sql.Open("sqlite3", "../data/catlover.db")
+	// cats, err := db.Query("SELECT * FROM Cats")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// cats.Close()
+
 	var cats = OpenJsonFile()
 	rand.Seed(time.Now().UnixNano())
 	rand.Shuffle(len(cats), func(i, j int) { cats[i], cats[j] = cats[j], cats[i] })
@@ -30,6 +42,15 @@ func GetAllCats() []models.Cat {
 }
 
 func GetCatById(id string) (models.Cat, int32) {
+
+	//If SQLite was working
+	// db, err := sql.Open("sqlite3", "../data/catlover.db")
+	// cats, err := db.Query("SELECT * FROM Cats WHERE Id = " + id)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// cats.Close()
+
 	var cats = OpenJsonFile()
 	for index := range cats {
 		if cats[index].Id == id {
@@ -41,6 +62,15 @@ func GetCatById(id string) (models.Cat, int32) {
 }
 
 func GetCatsByBreedId(breedId string) []models.Cat {
+
+	//If SQLite was working
+	// db, err := sql.Open("sqlite3", "../data/catlover.db")
+	// cats, err := db.Query("SELECT * FROM Cats WHERE BreedId = " + breedId)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// cats.Close()
+
 	var cats = OpenJsonFile()
 	var catsBreeds []models.Cat
 	for index := range cats {
@@ -52,6 +82,15 @@ func GetCatsByBreedId(breedId string) []models.Cat {
 }
 
 func GetCatFavorites() []models.Cat {
+
+	//If SQLite was working
+	// db, err := sql.Open("sqlite3", "../data/catlover.db")
+	// cats, err := db.Query("SELECT * FROM Cats WHERE IsFavorite = 1")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// cats.Close()
+
 	var cats = OpenJsonFile()
 	var catsFavorites []models.Cat
 	for index := range cats {
@@ -63,6 +102,16 @@ func GetCatFavorites() []models.Cat {
 }
 
 func UpdateCat(id string, c *gin.Context) (models.Cat, int32) {
+
+	//If SQLite was working
+	// db, err := sql.Open("sqlite3", "../data/catlover.db")
+	// stmt, err = db.Prepare("UPDATE cATS set IsFavorite=? where Id=?")
+	// res, err = stmt.Exec(1, id)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// cats.Close()
+
 	catOld, count := GetCatById(id)
 	if count == 0 {
 		var cat = models.Cat{}

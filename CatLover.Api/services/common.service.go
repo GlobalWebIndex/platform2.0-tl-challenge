@@ -1,6 +1,8 @@
 package services
 
 import (
+	"log"
+
 	"catlover.api/models"
 )
 
@@ -12,4 +14,10 @@ func ReturnResponse(status string, code int32, message string, data interface{})
 		Data:    data,
 	}
 	return response
+}
+
+func checkErr(err error) {
+	if err != nil {
+		log.Fatal(err)
+	}
 }
