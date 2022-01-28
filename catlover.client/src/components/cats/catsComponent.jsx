@@ -3,11 +3,14 @@ import CatComponent from "./catComponent";
 import LoadingComponent from "../loading/loadingComponent";
 import ErrorComponent from "../error/errorComponent";
 import PageTitleComponent from "../pageTitle/pageTitleComponent";
+import PaginationComponent from "../pagination/paginationComponent";
 
 class CatsComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentPage: 1,
+      catsPerPage: 10,
       error: null,
       isLoaded: false,
       message: String,
@@ -36,7 +39,15 @@ class CatsComponent extends Component {
   }
 
   render() {
-    const { error, isLoaded, message, items } = this.state;
+    const { currentPage, catsPerPage, error, isLoaded, message, items } =
+      this.state;
+    const indexOfLastCat = currentPage * catsPerPage;
+    const indexOfFirstCat = indexOfLastCat - catsPerPage;
+    const currentCats = items.slice(indexOfFirstCat, indexOfLastCat);
+    const paginate = (pageNum) => this.setState({ currentPage: pageNum });
+    const nextPage = () => this.setState({ currentPage: currentPage + 1 });
+    const prevPage = () => this.setState({ currentPage: currentPage - 1 });
+
     if (error) {
       return (
         <div>
@@ -51,11 +62,11 @@ class CatsComponent extends Component {
       );
     } else {
       return (
-        <div>
+        <div className="container">
           <PageTitleComponent title={message} />
           <div className="card-group m-2">
             <div className="row">
-              {items.map((item) => (
+              {currentCats.map((item) => (
                 <div key={item.id} className="col-lg-2 col-md-6 col-sm-6">
                   <div className="card img-thumbnail d-flex align-items-start bg-light mb-3">
                     <div className="card-body">
@@ -67,6 +78,13 @@ class CatsComponent extends Component {
                   </div>
                 </div>
               ))}
+              <PaginationComponent
+                catsPerPage={catsPerPage}
+                totalCats={items.length}
+                paginate={paginate}
+                nextPage={nextPage}
+                prevPage={prevPage}
+              />
             </div>
           </div>
         </div>
