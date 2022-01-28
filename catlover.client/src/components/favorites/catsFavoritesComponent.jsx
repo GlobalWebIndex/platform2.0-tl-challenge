@@ -57,7 +57,7 @@ class CatsFavoriteComponent extends Component {
           <div className="card-group m-2">
             <div className="row">
               {items.map((item) => (
-                <div key={item.id} className="col-lg-2 col-md-6 col-sm-6">
+                <div key={item.id} className="col-lg-3 col-md-6 col-sm-6">
                   <CatFavoriteComponent
                     photoUrl={item.photoUrl}
                     breedId={item.breedId}

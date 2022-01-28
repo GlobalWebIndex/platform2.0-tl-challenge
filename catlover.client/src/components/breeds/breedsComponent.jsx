@@ -58,7 +58,7 @@ class BreedsComponent extends Component {
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="col-xl-2 col-lg-2 col-md-6 col-sm-6"
+                  className="col-xl-3 col-lg-3 col-md-6 col-sm-6"
                 >
                   <div className="d-flex bg-light mb-3 m-2">
                     <div className="card-body">
