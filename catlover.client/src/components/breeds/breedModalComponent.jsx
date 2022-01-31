@@ -33,6 +33,8 @@ class BreedModalComponent extends Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
+    console.log(this.props);
+    console.log(items.Cats);
     return (
       <div>
         <Modal show={this.props.show} onHide={() => this.props.onHide()}>
@@ -41,18 +43,23 @@ class BreedModalComponent extends Component {
           </Modal.Header>
           <Modal.Body>
             <small className="text-muted">{this.props.data.breedDetails}</small>
-            {/* {items.map((item) => (
-              <div
-                key={item.id}
-                className="col-xl-2 col-lg-2 col-md-6 col-sm-6"
-              >
-                <img
-                  src="skata"
-                  className="card-img-top img-fluid img-rounded"
-                  alt="skata"
-                />
+            <div className="card-group m-2">
+              <div className="row">
+                {items.Cats?.map((item) => (
+                  <div key={item.id} className="col-6">
+                    <div className="card img-thumbnail d-flex align-items-start bg-light mb-3">
+                      <div className="card-body">
+                        <img
+                          src={item.photoUrl}
+                          className="card-img-top img-fluid img-rounded"
+                          alt={item.photoUrl}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))} */}
+            </div>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={() => this.props.onClick()}>
