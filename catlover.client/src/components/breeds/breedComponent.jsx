@@ -13,9 +13,7 @@ class BreedComponent extends Component {
     });
   };
 
-  handleClose = (fromModal) => {
-    alert(fromModal.msg);
-
+  handleClose = () => {
     this.setState({
       show: false,
     });

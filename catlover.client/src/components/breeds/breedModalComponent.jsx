@@ -35,14 +35,10 @@ class BreedModalComponent extends Component {
     const { error, isLoaded, items } = this.state;
     return (
       <div>
-        <Modal
-          show={this.props.show}
-          onHide={() => this.props.onHide({ msg: "Cross Icon Clicked!" })}
-        >
+        <Modal show={this.props.show} onHide={() => this.props.onHide()}>
           <Modal.Header closeButton>
             <Modal.Title>{this.props.data.breedName}</Modal.Title>
           </Modal.Header>
-
           <Modal.Body>
             <small className="text-muted">{this.props.data.breedDetails}</small>
             {/* {items.map((item) => (
@@ -58,23 +54,9 @@ class BreedModalComponent extends Component {
               </div>
             ))} */}
           </Modal.Body>
-
           <Modal.Footer>
-            <Button
-              variant="secondary"
-              onClick={() =>
-                this.props.onClick({
-                  msg: "Modal Closed!",
-                })
-              }
-            >
+            <Button variant="secondary" onClick={() => this.props.onClick()}>
               Close
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => this.props.onClick({ msg: "Modal Submitted!" })}
-            >
-              Submit
             </Button>
           </Modal.Footer>
         </Modal>
