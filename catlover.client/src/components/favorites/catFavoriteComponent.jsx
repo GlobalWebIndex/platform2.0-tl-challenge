@@ -50,7 +50,7 @@ class CatFavoriteComponent extends Component {
               <button
                 type="button"
                 className="btn btn-danger"
-                onClick={this.removeFavorite}
+                onClick={this.updateFavorite}
               >
                 Remove
               </button>
@@ -61,12 +61,23 @@ class CatFavoriteComponent extends Component {
     }
   }
 
-  removeFavorite = () => {
-    console.log(this.props.breedId);
+  updateFavorite = () => {
+    const API_URL = "http://localhost:10000";
+    const API_PATH = "/cats/" + this.props.catId;
 
-    // this.setState({
-    //   show: false,
-    // });
+    fetch(API_URL + API_PATH, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+      body: JSON.stringify({
+        breedId: this.props.breedId,
+        photoUrl: this.props.photoUrl,
+        isFavorite: false,
+      }),
+    });
+    window.location.reload(false);
   };
 }
 

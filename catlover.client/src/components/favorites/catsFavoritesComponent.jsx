@@ -36,6 +36,34 @@ class CatsFavoriteComponent extends Component {
       );
   }
 
+  noItems(items, message) {
+    console.log(items);
+    if (!items) {
+      console.log("no items");
+      return <PageTitleComponent title="Your favorites list is empty." />;
+    } else {
+      console.log("items");
+      return (
+        <div className="container">
+          <PageTitleComponent title={message} />
+          <div className="card-group m-2">
+            <div className="row">
+              {items.map((item) => (
+                <div key={item.id} className="col-lg-3 col-md-6 col-sm-6">
+                  <CatFavoriteComponent
+                    catId={item.id}
+                    photoUrl={item.photoUrl}
+                    breedId={item.breedId}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
+
   render() {
     const { error, isLoaded, message, items } = this.state;
     if (error) {
@@ -51,23 +79,7 @@ class CatsFavoriteComponent extends Component {
         </div>
       );
     } else {
-      return (
-        <div className="container">
-          <PageTitleComponent title={message} />
-          <div className="card-group m-2">
-            <div className="row">
-              {items.map((item) => (
-                <div key={item.id} className="col-lg-3 col-md-6 col-sm-6">
-                  <CatFavoriteComponent
-                    photoUrl={item.photoUrl}
-                    breedId={item.breedId}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      );
+      return <div>{this.noItems(items, message)}</div>;
     }
   }
 }
