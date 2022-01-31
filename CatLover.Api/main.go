@@ -23,7 +23,13 @@ func homePage(c *gin.Context) {
 func handleRequests() {
 
 	router := gin.Default()
-	router.Use(cors.Default())
+
+	router.Use(cors.New(cors.Config{
+		AllowMethods:  []string{"GET", "PATCH"},
+		ExposeHeaders: []string{"Content-Length"},
+		AllowHeaders:  []string{"*"},
+		AllowOrigins:  []string{"http://localhost:10000", "http://localhost:3000"},
+	}))
 
 	router.GET("/", homePage)
 
