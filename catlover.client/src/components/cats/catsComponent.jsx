@@ -74,6 +74,7 @@ class CatsComponent extends Component {
                         catId={item.id}
                         photoUrl={item.photoUrl}
                         breedId={item.breedId}
+                        isFavorite={item.isFavorite}
                       />
                     </div>
                   </div>

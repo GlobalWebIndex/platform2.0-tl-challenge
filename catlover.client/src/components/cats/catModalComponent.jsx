@@ -31,6 +31,28 @@ class CatModalComponent extends Component {
       );
   }
 
+  checkFavorite() {
+    if (this.props.data.isFavorite) {
+      return (
+        <Button
+          variant="danger"
+          onClick={() => this.props.onRemoveFavoriteClick()}
+        >
+          Remove From Favorite
+        </Button>
+      );
+    } else {
+      return (
+        <Button
+          variant="primary"
+          onClick={() => this.props.onAddFavoriteClick()}
+        >
+          Save as Favorite
+        </Button>
+      );
+    }
+  }
+
   render() {
     const { error, isLoaded, items } = this.state;
     return (
@@ -48,12 +70,13 @@ class CatModalComponent extends Component {
             />
           </Modal.Body>
           <Modal.Footer>
-            <Button
+            {this.checkFavorite()}
+            {/* <Button
               variant="primary"
               onClick={() => this.props.onUpdateFavoriteClick()}
             >
               Save as Favorite
-            </Button>
+            </Button> */}
             <Button
               variant="secondary"
               onClick={() => this.props.onCloseClick()}

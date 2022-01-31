@@ -18,9 +18,10 @@ class CatComponent extends Component {
     });
   };
 
-  updateFavorite = () => {
+  updateFavorite = (isFavorite) => {
     const API_URL = "http://localhost:10000";
     const API_PATH = "/cats/" + this.props.catId;
+    console.log(isFavorite);
 
     fetch(API_URL + API_PATH, {
       headers: {
@@ -31,9 +32,17 @@ class CatComponent extends Component {
       body: JSON.stringify({
         breedId: this.props.breedId,
         photoUrl: this.props.photoUrl,
-        isFavorite: true,
+        isFavorite: isFavorite,
       }),
     });
+  };
+
+  AddFavorite = () => {
+    this.updateFavorite(true);
+  };
+
+  RemoveFavorite = () => {
+    this.updateFavorite(false);
   };
 
   render() {
@@ -57,7 +66,8 @@ class CatComponent extends Component {
           title={this.state.title}
           body={this.state.body}
           data={this.props}
-          onUpdateFavoriteClick={this.updateFavorite}
+          onAddFavoriteClick={this.AddFavorite}
+          onRemoveFavoriteClick={this.RemoveFavorite}
           onCloseClick={this.handleClose}
         />
       </div>
