@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class HeaderComponent extends Component {
-  //   state = {};
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">

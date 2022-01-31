@@ -71,12 +71,6 @@ class CatModalComponent extends Component {
           </Modal.Body>
           <Modal.Footer>
             {this.checkFavorite()}
-            {/* <Button
-              variant="primary"
-              onClick={() => this.props.onUpdateFavoriteClick()}
-            >
-              Save as Favorite
-            </Button> */}
             <Button
               variant="secondary"
               onClick={() => this.props.onCloseClick()}

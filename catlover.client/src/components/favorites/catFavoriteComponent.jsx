@@ -19,8 +19,6 @@ class CatFavoriteComponent extends Component {
             isLoaded: true,
             items: result.data,
           });
-          // console.log(this.state.items.Breed.details);
-          // console.log(this.state.items.Breed.name);
         },
         (error) => {
           this.setState({
@@ -44,7 +42,6 @@ class CatFavoriteComponent extends Component {
             <img src={this.props.photoUrl} className="card-img-top" alt="..." />
             <div className="card-body">
               <h5 className="card-title">{items.Breed?.name}</h5>
-              {/* <p className="card-text">{items.Breed?.details}</p> */}
             </div>
             <div className="card-footer">
               <button
