@@ -12,10 +12,7 @@ class HomeComponent extends Component {
               <h5 className="card-title">Cats List</h5>
             </div>
             <div className="card-body">
-              <p className="card-text">Go to cats photos.</p>
-            </div>
-            <div className="card-footer">
-              <small className="text-muted">Last updated 3 mins ago</small>
+              <p className="card-text">Go to your all cats photos.</p>
             </div>
           </div>
         </div>
@@ -26,10 +23,7 @@ class HomeComponent extends Component {
               <h5 className="card-title">Breeds List</h5>
             </div>
             <div className="card-body">
-              <p className="card-text">Go to cats breeds.</p>
-            </div>
-            <div className="card-footer">
-              <small className="text-muted">Last updated 3 mins ago</small>
+              <p className="card-text">Go to the cat breeds.</p>
             </div>
           </div>
         </div>
@@ -40,10 +34,7 @@ class HomeComponent extends Component {
               <h5 className="card-title">Cats Favorite List</h5>
             </div>
             <div className="card-body">
-              <p className="card-text">Go to favorite cats.</p>
-            </div>
-            <div className="card-footer">
-              <small className="text-muted">Last updated 3 mins ago</small>
+              <p className="card-text">Go to your favorite cats.</p>
             </div>
           </div>
         </div>
