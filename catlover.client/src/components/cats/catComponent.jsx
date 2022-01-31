@@ -12,11 +12,27 @@ class CatComponent extends Component {
     });
   };
 
-  handleClose = (fromModal) => {
-    alert(fromModal.msg);
-
+  handleClose = () => {
     this.setState({
       show: false,
+    });
+  };
+
+  updateFavorite = () => {
+    const API_URL = "http://localhost:10000";
+    const API_PATH = "/cats/" + this.props.catId;
+
+    fetch(API_URL + API_PATH, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+      body: JSON.stringify({
+        breedId: this.props.breedId,
+        photoUrl: this.props.photoUrl,
+        isFavorite: true,
+      }),
     });
   };
 
@@ -41,8 +57,8 @@ class CatComponent extends Component {
           title={this.state.title}
           body={this.state.body}
           data={this.props}
-          onClick={this.handleClose}
-          onHide={this.handleClose}
+          onUpdateFavoriteClick={this.updateFavorite}
+          onCloseClick={this.handleClose}
         />
       </div>
     );

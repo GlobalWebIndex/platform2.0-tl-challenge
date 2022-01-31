@@ -71,6 +71,7 @@ class CatsComponent extends Component {
                   <div className="card img-thumbnail d-flex align-items-start bg-light mb-3">
                     <div className="card-body">
                       <CatComponent
+                        catId={item.id}
                         photoUrl={item.photoUrl}
                         breedId={item.breedId}
                       />

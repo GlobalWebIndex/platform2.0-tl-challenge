@@ -35,14 +35,10 @@ class CatModalComponent extends Component {
     const { error, isLoaded, items } = this.state;
     return (
       <div>
-        <Modal
-          show={this.props.show}
-          onHide={() => this.props.onHide({ msg: "Cross Icon Clicked!" })}
-        >
+        <Modal show={this.props.show} onHide={() => this.props.onCloseClick()}>
           <Modal.Header closeButton>
-            <Modal.Title>{items.name}</Modal.Title>
+            <Modal.Title>{items.Breed?.name}</Modal.Title>
           </Modal.Header>
-
           <Modal.Body>
             {this.props.data.body}
             <img
@@ -51,34 +47,19 @@ class CatModalComponent extends Component {
               alt={this.props.data.photoUrl}
             />
           </Modal.Body>
-
           <Modal.Footer>
             <Button
               variant="primary"
-              onClick={() =>
-                this.props.onClick({
-                  msg: "Modal Closed!",
-                })
-              }
+              onClick={() => this.props.onUpdateFavoriteClick()}
             >
               Save as Favorite
             </Button>
             <Button
               variant="secondary"
-              onClick={() =>
-                this.props.onClick({
-                  msg: "Modal Closed!",
-                })
-              }
+              onClick={() => this.props.onCloseClick()}
             >
               Close
             </Button>
-            {/* <Button
-              variant="primary"
-              onClick={() => this.props.onClick({ msg: "Modal Submitted!" })}
-            >
-              Submit
-            </Button> */}
           </Modal.Footer>
         </Modal>
       </div>
