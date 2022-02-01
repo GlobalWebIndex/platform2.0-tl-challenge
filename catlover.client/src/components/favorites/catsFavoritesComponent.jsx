@@ -25,7 +25,6 @@ class CatsFavoriteComponent extends Component {
             message: result.message,
             items: result.data,
           });
-          console.log(this.state);
         },
         (error) => {
           this.setState({
@@ -37,12 +36,9 @@ class CatsFavoriteComponent extends Component {
   }
 
   noItems(items, message) {
-    console.log(items);
     if (!items) {
-      console.log("no items");
       return <PageTitleComponent title="Your favorites list is empty." />;
     } else {
-      console.log("items");
       return (
         <div className="container">
           <PageTitleComponent title={message} />

@@ -1,4 +1,4 @@
-export interface Cat {
+export interface ResponseModel {
     status: string;
     code: number;
     message: string;

@@ -4,15 +4,13 @@ import CatModalComponent from "./catModalComponent";
 class CatComponent extends Component {
   state = {};
 
-  handleShow = () => {
+  showModal = () => {
     this.setState({
       show: true,
-      title: "Group People",
-      body: "Hi, find my group details",
     });
   };
 
-  handleClose = () => {
+  closeModal = () => {
     this.setState({
       show: false,
     });
@@ -21,7 +19,6 @@ class CatComponent extends Component {
   updateFavorite = (isFavorite) => {
     const API_URL = "http://localhost:10000";
     const API_PATH = "/cats/" + this.props.catId;
-    console.log(isFavorite);
 
     fetch(API_URL + API_PATH, {
       headers: {
@@ -52,8 +49,8 @@ class CatComponent extends Component {
           type="button"
           className="btn btn-light"
           data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          onClick={this.handleShow}
+          data-bs-target="#modal"
+          onClick={this.showModal}
         >
           <img
             src={this.props.photoUrl}
@@ -68,15 +65,10 @@ class CatComponent extends Component {
           data={this.props}
           onAddFavoriteClick={this.AddFavorite}
           onRemoveFavoriteClick={this.RemoveFavorite}
-          onCloseClick={this.handleClose}
+          onCloseClick={this.closeModal}
         />
       </div>
     );
-  }
-
-  imageClicked(text) {
-    this.test = text;
-    console.log("cat " + this.test);
   }
 }
 

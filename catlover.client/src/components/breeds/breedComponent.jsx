@@ -3,17 +3,14 @@ import BreedModalComponent from "./breedModalComponent";
 
 class BreedComponent extends Component {
   state = {};
-  test = {};
 
-  handleShow = () => {
+  showModal = () => {
     this.setState({
       show: true,
-      title: "Group People",
-      body: "Hi, find my group details",
     });
   };
 
-  handleClose = () => {
+  closeModal = () => {
     this.setState({
       show: false,
     });
@@ -26,8 +23,8 @@ class BreedComponent extends Component {
           type="button"
           className="btn btn-secondary w-100"
           data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          onClick={this.handleShow}
+          data-bs-target="#modal"
+          onClick={this.showModal}
         >
           {this.props.breedName}
         </button>
@@ -36,16 +33,11 @@ class BreedComponent extends Component {
           title={this.state.title}
           body={this.state.body}
           data={this.props}
-          onClick={this.handleClose}
-          onHide={this.handleClose}
+          onClick={this.closeModal}
+          onHide={this.closeModal}
         />
       </div>
     );
-  }
-
-  imageClicked(text) {
-    this.test = text;
-    console.log("cat " + this.test);
   }
 }
 

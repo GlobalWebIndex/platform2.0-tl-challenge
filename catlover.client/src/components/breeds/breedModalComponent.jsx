@@ -33,8 +33,6 @@ class BreedModalComponent extends Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
-    console.log(this.props);
-    console.log(items.Cats);
     return (
       <div>
         <Modal show={this.props.show} onHide={() => this.props.onHide()}>

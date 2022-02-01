@@ -15,7 +15,7 @@ class BreedsComponent extends Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     fetch("http://localhost:10000/breeds")
       .then((res) => res.json())
       .then(
@@ -36,7 +36,9 @@ class BreedsComponent extends Component {
   }
 
   render() {
+    // this.getBreeds();
     const { error, isLoaded, message, items } = this.state;
+    console.log("BreedsComponent render: " + items);
     if (error) {
       return (
         <div>
@@ -55,7 +57,7 @@ class BreedsComponent extends Component {
           <PageTitleComponent title={message} />
           <div className="card-group m-2">
             <div className="row">
-              {items.map((item) => (
+              {items?.map((item) => (
                 <div
                   key={item.id}
                   className="col-xl-3 col-lg-3 col-md-6 col-sm-6"
