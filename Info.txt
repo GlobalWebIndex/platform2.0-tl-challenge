@@ -1,0 +1,47 @@
+- Analysis & Requirements
+    Trello used.
+    Below you can find the link of the analysis and requirements tasks.
+    https://trello.com/c/T58PmrKJ
+    Alternatively (If you don't have access) you can find the file RequirementsTasks.pdf.
+
+- Time Management:
+    1. Analysis and Requirements: 1-2 days (Approx).
+    2. Setup the environment for GO & React. 1-2 days (Approx).
+    3. Programming: 5-6 days (Approx).
+    4. Research & Testing: 2-3 days (Approx).
+
+- Environment Info
+    - VS Code.
+    - Windows 10.
+
+- Generic Informations:
+    1. I am currently working so my free time is limited.
+    2. I don't have knowledge of GO & React. I learn them now from scratch.
+    3. My professional & personal experience is with Microsoft (C# & VB) and also some Angular 2+.
+    4. I'm a backend Software engineer but I also have some knowledge with angular 2+ (13).
+    5. I also have a personal project with Angular 13 and C# with MySQL. This project is available for you to review it if you wish (with share screen), in order to check all the patterns and logic I use in a complete WebApi/SPA web portal.
+    6. I did the best I could based on the time and knowledge I have.
+    7. DB with go-sqlite3: I always get the error "cgo: C compiler "gcc" not found: exec: "gcc": executable file not found in %PATH%" when I'm trying to install the package go-sqlite3. "go install github.com/mattn/go-sqlite3" & "go get github.com/mattn/go-sqlite3" //MiniGW & tdm64-gcc are installed. Every solution I found on the web is not working. So I used JSON files for my data.
+
+- Missed Requirements
+    1. URL of model cat breed.
+    2. Link from Cat modal to breed details.
+
+- Unfixed Problems:
+    1. For some reason I have "GET" requests for every item in the lists, when the page is loading.
+    2. DB with go-sqlite3 cannot be installed.
+    3. Cannot read properties of undefined (reading 'classList') when the modal is opened.
+    4. The service "requestsService" is not used. I could not make it work.
+    5. The model "ResponseModel" is not used.
+    6. Axios package used for requests but did't work and uninstalled.
+
+- Best practices that NOT included because of time and knowledge of Go & React.
+    1. API: Connection with Database not with JSON files.
+    2. API: Repository pattern with generic repository.
+    3. API: User authentication with JWT Authentication.
+    4. API: Unit testing for the controllers & endpoints
+    5. React: Popup message component when updating favorite cat.
+    6. React: Service file with public requests in order to be used all over the project.
+    7. React: User authentication with JWT Authentication.
+    8. React: Asynchronous requests.
+
