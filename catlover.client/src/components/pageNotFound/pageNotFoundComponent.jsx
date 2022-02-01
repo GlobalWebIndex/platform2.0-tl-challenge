@@ -6,7 +6,7 @@ class PageNotFoundComponent extends Component {
     return (
       <div>
         <img
-          src="/PageNotFound.jpg"
+          src="./PageNotFound.jpg"
           className="card-img-top img-fluid img-rounded"
           alt="Page Not Found"
         />
