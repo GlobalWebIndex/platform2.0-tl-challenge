@@ -57,7 +57,7 @@
         "id": "10",
         "breedId": "8",
         "photoUrl": "https://idsb.tmgrup.com.tr/ly/uploads/images/2021/09/08/thumbs/871x871/142783.jpg",
-        "isFavorite": true
+        "isFavorite": false
     },
     {
         "id": "11",
@@ -135,7 +135,7 @@
         "id": "23",
         "breedId": "3",
         "photoUrl": "https://idsb.tmgrup.com.tr/ly/uploads/images/2021/09/08/thumbs/871x871/142783.jpg",
-        "isFavorite": true
+        "isFavorite": false
     },
     {
         "id": "24",
